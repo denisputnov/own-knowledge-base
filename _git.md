@@ -1,8 +1,8 @@
 ### Git Knowledge Base
->Here you can see usefull commands for Windows console, that I use in my work.
+>Here you can see useful commands for Windows console, that I use in my work.
 
 ### git status
-Show info about files in your repositiry. 
+Show info about files in your repository. 
 ```
 git status
 ```
@@ -54,7 +54,7 @@ git commit -m "Update _git.md"
 git commit FILENAME - commit file FILENAME and automatically added it to the index
 ```
 ### git push
-This command let you send last commit to GitHub Cloud in your online repository.
+These command let you send last commit to GitHub Cloud in your online repository.
 ```
 git push
 ```
