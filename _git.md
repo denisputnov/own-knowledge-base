@@ -58,3 +58,16 @@ This command let you send last commit to GitHub Cloud in your online repository.
 ```
 git push
 ```
+
+That's all for now.
+
+---
+
+### Find me here:
+* [Вконтакте](https://vk.com/grnbows) </br>
+* [Instagram](https://www.instagram.com/grnbows) </br>
+* [Twitter](https://twitter.com/grnbows) </br>
+
+### License
+
+This project is free for personal and commercial use. </br> by grnbows
