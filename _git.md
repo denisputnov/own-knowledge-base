@@ -58,7 +58,21 @@ This command let you send last commit to GitHub Cloud in your online repository.
 ```
 git push
 ```
-
+---
+### git branch
+Show you all branches, that you have.
+```
+git branch
+```
+### git checkout -b "BRANCH_NAME"
+Create new branch with name BRANCH_NAME.
+```
+git checkout -b "BRANCH_NAME"
+```
+### git checkout BRANCH_NAME
+```
+git checkout BRANCH_NAME
+```
 That's all for now.
 
 ---
