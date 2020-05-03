@@ -11,7 +11,8 @@ class IncorrectParameters(Exception):
 class UnexpectedChart(Exception):
 	pass
 
-print(PIL.__path__)
+if __name__ == '__main__':
+	print(PIL.__path__)
 
 def draw_graph(
 	data,
@@ -24,8 +25,8 @@ def draw_graph(
 	tile_color=(20, 20, 20),
 	sub_title_color=(40, 40, 40),
 
-	width=1000, 
-	height=400,
+	width=2000, 
+	height=800,
 	
 	title_font='MullerMedium.ttf',
 	sub_title_font='MullerRegular.ttf',
@@ -39,14 +40,15 @@ def draw_graph(
 	end_color=(87, 255, 146),
 	chart_background_color=(240, 240, 240),
 	background_color=(248, 248, 248),
+	
 	gradient=True,
-
+	show_values=True,
 
 	watermark_text=None,
 	watermark_size=20):
 	
 	graph_height = height * 0.9
-
+	start_height = height
 
 	if sub_title_text is not None and title_text is None:
 		raise IncorrectParameters
@@ -59,11 +61,6 @@ def draw_graph(
 
 	if sub_title_font[-4:] != '.ttf':
 		sub_title_font += '.ttf'
-	
-	if chart == 'line':
-		width, height = width * 3, height * 3
-		graph_height = graph_height * 3
-		title_size, sub_title_size, watermark_size = title_size * 3, sub_title_size * 3, watermark_size * 3
 
 	if watermark_text is not None:
 		height += watermark_size
@@ -99,12 +96,18 @@ def draw_graph(
 		if sub_title_text is None:
 			draw.rectangle([20, 15 + title_heigth, width - 20, height - 15 - watermark_size], fill=chart_background_color)
 
+			for y in range(5):
+				draw.line([40, title_heigth + sub_title_heigth + start_height/10 + y * height/4,  width - 40, title_heigth + sub_title_heigth + start_height/10 + y * height/4 ], fill=(230, 230, 230), width=2)
+
 		if sub_title_text is not None:
 			draw.text(
 				((width - sub_title_width) / 2, (5 + title_heigth + 5)), 
 				sub_title_text, font=sub_title_font, fill=sub_title_color)
 
 			draw.rectangle([20, 15 + title_heigth + sub_title_heigth, width - 20, height - 15 - watermark_size], fill=chart_background_color)
+
+			for y in range(5):
+				draw.line([40, title_heigth + sub_title_heigth + start_height/10 + y * height/4,  width - 40, title_heigth + sub_title_heigth + start_height/10 + y * height/4 ], fill=(230, 230, 230), width=2)
 
 	if watermark_text is not None:
 		draw.text(
@@ -113,6 +116,9 @@ def draw_graph(
 
 	if sub_title_text is None and title_text is None:
 		draw.rectangle([20, 15 + title_heigth + sub_title_heigth, width - 20, height - 15 - watermark_size], fill=chart_background_color)
+
+		for y in range(5):
+				draw.line([40, title_heigth + sub_title_heigth + start_height/10 + y * height/4,  width - 40, title_heigth + sub_title_heigth + start_height/10 + y * height/4 ], fill=(230, 230, 230), width=2)
 
 	dx = (width - 40) / len(data)
 	dy = sum(data.values())/ len(data)
@@ -137,10 +143,40 @@ def draw_graph(
 				color[2] -= db 
 				color = tuple(color)
 				draw.rectangle([5 + x, height - watermark_size - 15, x + dx, 20 + title_heigth + sub_title_heigth + graph_height - graph_height*(value/(max_value/100)/100)], fill=color)
+
+				if show_values and value == values[0]:
+					draw.text(
+						((5 + x + dx)/2, (height - 18 - watermark_size/2)), 
+						str(keys[0]), 
+						font=ImageFont.truetype(sub_title_font, 30), fill=sub_title_color
+						)
+
+				if show_values and value == values[-1]:
+					draw.text(
+						((width - dx/2 - 37), (height - 18 - watermark_size/2)), 
+						str(keys[-1]), 
+						font=ImageFont.truetype(sub_title_font, 30), fill=sub_title_color
+						)
+					
 				x += dx
 		else:
 			for value in values:
-				draw.rectangle([5 + x, height - watermark_size - 15, x + dx, 20 + title_heigth + sub_title_heigth + ((1000 - 1000*((value/(max_value/100))/100)))/3], fill=color)
+				draw.rectangle([5 + x, height - watermark_size - 15, x + dx, 20 + title_heigth + sub_title_heigth + graph_height - graph_height*(value/(max_value/100)/100)], fill=color)
+				
+				if show_values and value == values[0]:
+					draw.text(
+						((5 + x + dx)/2, (height - 18 - watermark_size/2)), 
+						str(keys[0]), 
+						font=ImageFont.truetype(sub_title_font, 30), fill=sub_title_color
+						)
+
+				if show_values and value == values[-1]:
+					draw.text(
+						((width - dx/2 - 37), (height - 18 - watermark_size/2)), 
+						str(keys[-1]), 
+						font=ImageFont.truetype(sub_title_font, 30), fill=sub_title_color
+						)
+
 				x += dx
 	elif chart.lower() == 'line':
 		x = 18 + dx/2
@@ -162,7 +198,8 @@ def draw_graph(
 	else:
 		raise UnexpectedChart
 
-	img.show()
+	if __name__ == '__main__':
+		img.show()
 
 
 if __name__ == '__main__':
@@ -172,9 +209,9 @@ if __name__ == '__main__':
 	for i in range(randint(7,60)):
 		data[i] = randint(1000, 50000)
 		# data[i] = i * k
-		# k += 0.2
+		# k *= 1.1
 
 	print(data)
 
-	draw_graph(data, chart='line', title_text='График какой-то неведомой инфы', title_size=57, sub_title_text='Очень нужный поздаголовок', watermark_text='Telegram | @pyInfoParserBot')
+	draw_graph(data, title_text='Заголовок', watermark_text='Telegram | @pyInfoParserBot')
 	print(len(data))
