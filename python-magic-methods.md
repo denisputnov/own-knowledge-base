@@ -1,7 +1,7 @@
 ### Python Magic Methods. Hi there!
 > Here you can see just a bit about `python magic methods`. This is my small documentation, yay :) 
 
-### `__init__`
+### \_\_init\_\_
 It's initialization, which performed for every new class instance. With this method we can execute a part of code in the initialization moment and define different parameters for our instance, for example.
 ```
 def __init__(self, argument1, argument2, ...):
@@ -10,20 +10,20 @@ def __init__(self, argument1, argument2, ...):
     self.argument3 = really_important_func(self.argument1, self.argument2)
     ...
 ```
-### `__str__`
+### \_\_str\_\_
 Method, which can help us to redefine instance output in console. For example, imagine that we have many instances of class and every instance is a planet. Let the name of the planet be displayed in the console:
 ```
 def __str__(self):
     return self.name 
 ```
-### `__self__ , __repr__`
+### \_\_self\_\_ , \_\_repr\_\_
 `__self__` refers to the external representation of an instance of a class <br>
 `__repr__` refers to the internal representation that Python itself will handle:
 ```
 def __repr__(self):
     return f"Planet {self.name}"
 ```
-### `__dict__`
+### \_\_dict\_\_
 Allows you to see all the attributes of the class and instance
 ```
 class.__dict__
@@ -32,7 +32,7 @@ class.__dict__
 instance.__dict__
 >>> all instance atributes
 ```
-### `__doc__`
+### \_\_doc\_\_
 Let you see documentation for func, class etc.
 ```
 def really_important_func(a, b):
@@ -43,17 +43,17 @@ really_important_func.__doc__
 >>> doc string
 ```
 
-### `__class__`
+### \_\_class\_\_
 Allows you to see which file a lot of structural project belongs to
 
-### `__new__`
+### \_\_new\_\_
 Class instance constructor:
 ```
 def __new__(cls, *args, **kwargs)
     obj = super().__new__(cls) # creating a new instance of the class
     return obj
 ```
-### `__getattr__`, `__getattribute__`
+### \_\_getattr\_\_, \_\_getattribute\_\_
 Checks if an instance of a class has an attribute.
 ```
 def __getattr__(self, name):
@@ -63,10 +63,10 @@ def __getattr__(self, name):
 def __getattribute__(self, name):
     return message # will always return a message
 ```
-### `__setattr__`, `__delattr__`
+### \_\_setattr\_\_, \_\_delattr\_\_
 `__settattr__(self, name, value):` controlls the behavior when we set attribute
 `__delattr__(self, name):` controlls the behavior when we delete attribute
-### `__call__`
+### \_\_call\_\_
 `__call__(self, func):` defines behavior when a class is called.
 Using `__call__`, you can define a logger, which can then be used as a decorator.
 ```
@@ -85,14 +85,14 @@ logger = Logger('log.txt')
 def somethink_func():
     pass
 ```
-### `__add__` etc.
+### \_\_add\_\_ etc.
 Override the additional, substraction, multiplication behavior of instances etc.
 
-### `__getitem__, __setitem__`
+### \_\_getitem\_\_, \_\_setitem\_\_
 `__getitem__` defnes the behavior of an object when accessed by index or key - `obj[key]` <br>
 `__setitem__` defines the behavior of an object when assigned by index or key - `obj[key]=value`
 
-### `__slots__`
+### \_\_slots\_\_
 Allows you to rigidly set the number of arguments and their names:
 ```
 __slots__ = ['arg1', 'arg2',...]
