@@ -73,15 +73,25 @@ git checkout -b "BRANCH_NAME"
 ```
 git checkout BRANCH_NAME
 ```
+## FAQ:
+
+### How can I delete file from all github repository story?
+
+```
+> git filter-branch --force --index-filter "git rm --cached --ignore-unmatch FILENAME" --prune-empty --tag-name-filter cat -- --all
+
+> git push origin --force --all
+> git push origin --force --tags
+```
+
 That's all for now.
 
 ---
 
 ### Find me here:
+* [Telegram](https://t.me/grnbows) </br>
 * [Вконтакте](https://vk.com/grnbows) </br>
 * [Instagram](https://www.instagram.com/grnbows) </br>
 * [Twitter](https://twitter.com/grnbows) </br>
 
-### License
-
-This project is free for personal and commercial use. </br> by grnbows
+<i>With respect and love,</i></br> by grnbows
