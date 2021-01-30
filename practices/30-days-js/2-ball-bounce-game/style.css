@@ -1,0 +1,29 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background-color: whitesmoke;
+    justify-content: center;
+}
+.content {
+    width: 100%;
+}
+header {
+    padding: 0 0 30px 0;
+    font-size: 30px;
+}
+.gameCanvas {
+    display: block;
+    margin: 0 auto;
+    width: 640px;
+    height: 480px;
+    background-color: white;
+}

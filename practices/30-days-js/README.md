@@ -3,7 +3,7 @@
 This folder is about my 30 days of JS. Here I'll create 30 projects on javascript. By the way, hope, that it will be a good practice experience.
 
 1. Text-to-Voice
-2. "Ball balance" game
+2. "Ball Bounce" game
 3. Math game
 4. Random number generator
 5. Search of songs texts 
