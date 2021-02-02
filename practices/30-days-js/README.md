@@ -6,7 +6,7 @@ This folder is about my 30 days of JS. Here I'll create 30 projects on javascrip
 2. "Ball Bounce" game
 3. Math game
 4. Random number generator
-5. Search of songs texts 
+5. Watches
 6. Age calculator
 7. "Snake" game
 8. Speed typing simulator
