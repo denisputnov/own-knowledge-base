@@ -15,3 +15,4 @@ recognition.onresult = function(event) {
 recognition.onspeechend = function() {
     recognition.stop();
 };
+
