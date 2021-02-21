@@ -113,15 +113,12 @@ header {
     max-width: 60%;
     border-radius: 10px;
     width: max-content;
-
-    /* background-color: rgb(230, 230, 230); */
+    overflow-wrap: break-word;
 }
 #messages .message.input-message {
-    display: flex;
     margin-right: auto;
     margin-left: 10px;
     background-color: rgb(240, 240, 240);
-
 }
 #messages .message.output-message {
     margin-left: auto;
