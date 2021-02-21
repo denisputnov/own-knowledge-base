@@ -26,7 +26,7 @@ This folder is about my 30 days of JS. Here I'll create 30 projects on javascrip
 22. Video Player
 23. Message encoder/decoder
 24. Interactive map
-25. Spellchecking
+25. Validation
 26. "Breakout" game
 27. Ripple effect
 28. "Gallows" game
