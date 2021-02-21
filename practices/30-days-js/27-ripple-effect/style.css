@@ -1,23 +1,64 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    padding: 0;
-    margin: 0;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 40px 20px;
-    background-color: whitesmoke;
-    justify-content: center;
-}
-.content {
-    width: 40px;
-    height: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  background-color: whitesmoke;
+  justify-content: center;
 }
 header {
-    padding: 0 0 30px 0;
-    font-size: 30px;
+  padding: 0 0 30px 0;
+  font-size: 30px;
+}
+.ripple-button {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 40px;
+  color: #fff;
+  font-size: 2em;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(
+    25deg,
+    rgb(69, 125, 172) 0%,
+    rgb(2, 185, 218) 100%
+  );
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition-duration: 400ms;
+  overflow: hidden;
+  outline: none;
+}
+
+.ripple-button:hover {
+  transform: scale(1.02);
+}
+
+button > span {
+  position: absolute;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ripples 0.6s linear infinite;
+}
+
+@keyframes ripples {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
 }
