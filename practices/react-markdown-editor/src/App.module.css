@@ -1,0 +1,18 @@
+.App {
+  display: flex;
+}
+
+.Textarea {
+  width: 50%;
+  height: 100vh;
+  padding: 20px;
+  font-size: 2rem;
+  outline: none;
+}
+
+.Markdown {
+  width: 50%;
+  height: 100vh;
+  padding: 20px;
+  outline: none;
+}
